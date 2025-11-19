@@ -1,15 +1,14 @@
-const port = 3011;
-const express = require("express");
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+import estudianteRoutes from './routes/estudiante_routes.js';
+
 const app = express();
-
-app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const videogamesRoutes = require('./Routes/videogameRoutes');
+app.use('/', estudianteRoutes);
 
-app.use("/videogameStore",videogamesRoutes);
-
-app.listen(port,() => console.log("System Running in --> "+port));
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Backend corriendo en http://localhost:${PORT}`);
+});
