@@ -1,3 +1,5 @@
+import { Estudiante } from "../modelo/Estudiante";
+
 export class Lista_Estudiantes {
   constructor() {
     this.estudiantes = [];
@@ -5,13 +7,13 @@ export class Lista_Estudiantes {
   }
 
   agregar(estudiante) {
-    this.siguienteId++;
     estudiante.id = this.siguienteId;
     this.estudiantes.push(estudiante);
     console.log("Estudiante agregado");
     console.log(estudiante.id);
     console.log(estudiante.nombre);
     console.log(estudiante.edad);
+    this.siguienteId++;
   }
   obtener_todos() { return [...this.estudiantes]; }
   buscar_por_id(id) { 
@@ -26,5 +28,10 @@ export class Lista_Estudiantes {
     return false; 
   }
 
+  modificar_por_id(id, nombre, edad){
+    const estudiante = this.buscar_por_id(id);
+    estudiante.setNombre(nombre);
+    estudiante.setEdad(edad);
+  }
 }
 
