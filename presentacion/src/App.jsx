@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { EstudianteService } from '../logica_negocio/EstudianteServicio'
-import './App.css'
+import './App.css';
 const controlador=new EstudianteService();
 function App() {
   const [estudiantes, setEstudiantes] = useState([]);
@@ -13,7 +13,7 @@ function App() {
     setNombre("");
     setEdad(0);
   };
-  let status = (formulario_abierto? "container" : "hidden");
+  let status = (formulario_abierto? "container m-auto py-4 py-8 w-fit" : "hidden");
   
   const obtenerEstudiantes = () =>{
     setEstudiantes(controlador.listar());
@@ -33,11 +33,19 @@ function App() {
     }, []);
   return (
     <>
-      <h1>Estudiantes</h1>
-      <div className='container'>
-        <button className='rounded-full bg-blue-500 text-white' onClick={abrirFormulario}>
+      <h1 className=' font-bold text-3xl text-center'>Estudiantes</h1>
+      <div className='container m-auto'>
+        <div className='grid grid-cols-3 justify-items-between gap-1 m-auto w-fit py-3'>
+          <button className='rounded-full mx-3 bg-blue-500 text-white' onClick={abrirFormulario}>
           Agregar Alumno
         </button>
+        <button className='rounded-full mx-3 bg-blue-500 text-white' onClick={abrirFormulario}>
+          Editar Alumno
+        </button>
+        <button className='rounded-full mx-3 bg-blue-500 text-white' onClick={abrirFormulario}>
+          Eliminar Alumno
+        </button>
+        </div>
       </div>
       <div className={status}>
         <h2 className='text-center'></h2>
@@ -51,31 +59,31 @@ function App() {
             <input type='number' className=' border-2' value={edad_es} onChange={(e)=>{setEdad(e.target.value)}}/>
           </div>
         </div>
-        <div>
-          <button onClick={agregarEstudiante}>Guardar</button>
-          <button onClick={cerrarFormulario}>Cancelar</button>
+        <div className='justify-items-center m-auto w-fit my-3 py-2 gap-2'>
+          <button className='mx-1 border border-white hover:bg-blue-950' onClick={agregarEstudiante}>Guardar</button>
+          <button className='mx-1 border border-white hover:bg-red-950 hover:border-red-500' onClick={cerrarFormulario}>Cancelar</button>
         </div>
       </div>
-      <div>
-        <table border={1}>
+      <div className='container m-auto w-full items-center justify-center mt-4'>
+        <table border={1} className='table-auto m-auto border-gray-100 border-2'>
           <tbody> 
-            <tr>
-            <th>
+            <tr className='bg-gray-800 text-white'>
+            <th className='border-gray-100 border p-4'>
               Id
             </th>
-            <th>
+            <th className='border-gray-100 border p-4'>
               Nombre
             </th>
-            <th>
+            <th className='border-gray-100 border p-4'>
               Edad
             </th>
           </tr>
             {
             estudiantes.map((estudiante) => (
-              <tr key={estudiante.id}>
-                <td>{estudiante.id}</td>
-                <td>{estudiante.nombre}</td>
-                <td>{estudiante.edad}</td>
+              <tr key={estudiante.id} className="text-center">
+                <td className='border-gray-100 border p-4'>{estudiante.id}</td>
+                <td className='border-gray-100 border p-4'>{estudiante.nombre}</td>
+                <td className='border-gray-100 border p-4'>{estudiante.edad}</td>
               </tr>
             ))
             }
