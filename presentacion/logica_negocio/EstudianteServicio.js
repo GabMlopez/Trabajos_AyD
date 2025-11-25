@@ -1,9 +1,9 @@
 import {Estudiante} from '../datos/modelo/Estudiante.js';
-import {Lista_Estudiantes}  from '../datos/repositorio/EstudianteRepositorio.js';
+import instanciaRepositorio from '../datos/repositorio/EstudianteRepositorio.js';
 
 export class EstudianteService {
     constructor() {
-        this.repo = new Lista_Estudiantes();
+        this.repo = instanciaRepositorio;
     }
    registrar(nombre, edad) {
     if (!nombre || nombre.trim().length < 2)
