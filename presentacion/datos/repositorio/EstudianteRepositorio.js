@@ -54,6 +54,13 @@ class Lista_Estudiantes {
     return this.estudiantes.find((e) => e.id === id);
   }
 
+  modificar_por_id(id, nombre, edad){
+    const estudiante = this.buscar_por_id(id);
+    estudiante.setNombre(nombre);
+    estudiante.setEdad(edad);
+  }
+
+
   /**
    * Elimina un estudiante por su ID.
    * @param {number} id - El ID del estudiante a eliminar.

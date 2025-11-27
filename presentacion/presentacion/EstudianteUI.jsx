@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { EstudianteService } from '../logica_negocio/EstudianteServicio'
 import './App.css';
-const controlador=new EstudianteService();
+
 function App() {
+  const controlador=new EstudianteService();
   const [estudiantes, setEstudiantes] = useState([]);
   const [id_es,setId]=useState("");
   const [nombre_es,setNombre]=useState("");
