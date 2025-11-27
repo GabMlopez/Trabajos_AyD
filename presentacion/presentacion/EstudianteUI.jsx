@@ -20,6 +20,7 @@ function App() {
   const cerrarFormularioCrear = () => {
     setFormularioCrearAbierto(false);
     setNombre("");
+    setId("");
     setEdad(0);
   };
   const abrirFormularioModificar = () => {
@@ -31,6 +32,7 @@ function App() {
   const cerrarFormularioModificar = () => {
     setFormularioModificarAbierto(false);
     setNombre("");
+    setId("");
     setEdad(0);
   };
   const abrirFormularioEliminar = () => {
@@ -42,6 +44,7 @@ function App() {
   const cerrarFormularioEliminar = () => {
     setFormularioEliminarAbierto(false);
     setNombre("");
+    setId("");
     setEdad(0);
   }
 
@@ -53,9 +56,11 @@ function App() {
   }
 
   const agregarEstudiante = () =>{
-    controlador.registrar(nombre_es,edad_es);
+    console.log(id_es);
+    controlador.registrar(id_es,nombre_es,edad_es);
     setNombre("");
     setEdad(0);
+    setId("");
     cerrarFormularioCrear();
     obtenerEstudiantes();
   }
@@ -106,6 +111,10 @@ function App() {
       <div className={formularioCrear}>
         <h2 className='text-center'></h2>
         <div className=' columns-2 gap-4'>
+          <div>
+            <label>Id:</label>
+            <input type='text' className=' border-2' value={id_es} onChange={(e)=>{setId(e.target.value)}}/>
+          </div>
           <div>
             <label>Nombre:</label>
             <input type='text' className=' border-2' value={nombre_es} onChange={(e)=>{setNombre(e.target.value)}}/>

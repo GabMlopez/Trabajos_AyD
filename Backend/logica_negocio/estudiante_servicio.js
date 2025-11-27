@@ -1,7 +1,7 @@
 import { estudiante } from '../datos/modelo/estudiante.js';
-import { lista_estudiantes } from '../datos/repositorio/Lista_Estudiantes.js';
+import { lista_estudiantes } from '../datos/repositorio/lista_estudiantes.js';
 
-const repo = new EstudianteRepository();
+const repo = new lista_estudiantes();
 
 export class EstudianteService {
   registrar(nombre, edad) {
@@ -15,7 +15,7 @@ export class EstudianteService {
     if (edad < 0 || edad > 100)
       throw new Error('Edad fuera de rango');
 
-    const nuevo = new Estudiante(null, nombre.trim(), parseInt(edad));
+    const nuevo = new estudiante(null, nombre.trim(), parseInt(edad));
     return repo.agregar(nuevo);
   }
 

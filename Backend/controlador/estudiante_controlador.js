@@ -2,7 +2,7 @@ import { EstudianteService } from '../logica_negocio/estudiante_servicio.js';
 
 const service = new EstudianteService();
 
-export const obtenerTodos = (req, res) => {
+export const obtener_todos = (req, res) => {
   res.json(service.listar());
 };
 
