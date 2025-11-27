@@ -5,10 +5,7 @@ import '../App.css';
 const Formulario = forwardRef(function Formulario({ tipo, control, onChange }, ref) {
     const estrategias = {
   crear: {
-    title: "Crear nuevo",
-    editable: true,
-    busqueda: false,
-    actionLabel: "Agregar",
+    title: "Crear nuevo", editable: true, busqueda: false, actionLabel: "Agregar",
     action: () =>{
     controlador.registrar(id_es,nombre_es,edad_es);
     cerrarFormulario();
@@ -17,10 +14,7 @@ const Formulario = forwardRef(function Formulario({ tipo, control, onChange }, r
   }
   },
   modificar: {
-    title: "Modificar",
-    editable: true,
-    busqueda: true,
-    actionLabel: "Guardar cambios",
+    title: "Modificar", editable: true, busqueda: true, actionLabel: "Guardar cambios",
     action: (id_estudiante) =>{
     controlador.modificar_con_id(id_estudiante, nombre_es, edad_es);
     cerrarFormulario();
@@ -29,10 +23,7 @@ const Formulario = forwardRef(function Formulario({ tipo, control, onChange }, r
     }
   },
   eliminar: {
-    title: "Eliminar",
-    editable: false,
-    busqueda: true,
-    actionLabel: "Eliminar",
+    title: "Eliminar", editable: false, busqueda: true, actionLabel: "Eliminar",
     action: (id_estudiante) =>{
     controlador.eliminar(id_estudiante);
     cerrarFormulario();
@@ -116,7 +107,7 @@ const Formulario = forwardRef(function Formulario({ tipo, control, onChange }, r
           </div>
         </div>
         <div className='justify-items-center m-auto w-fit my-3 py-2 gap-2'>
-          <button className='mx-1 border border-white hover:bg-blue-950' onClick={()=>{config.action(id_es)}}>Agregar</button>
+          <button className='mx-1 border border-white hover:bg-blue-950' onClick={()=>{config.action(id_es)}}>{config.actionLabel}</button>
           <button className='mx-1 border border-white hover:bg-red-950 hover:border-red-500' onClick={cerrarFormulario}>Cancelar</button>
         </div>
       </div>
