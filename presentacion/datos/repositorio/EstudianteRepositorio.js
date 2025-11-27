@@ -3,11 +3,9 @@ import { Estudiante } from "../modelo/Estudiante";
 export class Lista_Estudiantes {
   constructor() {
     this.estudiantes = [];
-    this.siguienteId = 1;
   }
 
   agregar(estudiante) {
-    estudiante.id = this.siguienteId;
     this.estudiantes.push(estudiante);
     console.log("Estudiante agregado");
     console.log(estudiante.id);

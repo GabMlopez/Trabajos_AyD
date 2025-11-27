@@ -1,4 +1,4 @@
-class estudiante {
+export class estudiante {
     constructor(id, nombre, edad) {
         this.id = id;
         this.nombre = nombre;
