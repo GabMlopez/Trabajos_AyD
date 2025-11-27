@@ -11,7 +11,6 @@ class Lista_Estudiantes {
       return Lista_Estudiantes.instancia;
     }
     this.estudiantes = [];
-    this.siguienteId = 1;
     Lista_Estudiantes.instancia = this;
   }
 
@@ -32,8 +31,8 @@ class Lista_Estudiantes {
    * @returns {Object} El estudiante agregado con su ID asignado.
    */
   agregar(estudiante) {
-    estudiante.id = this.siguienteId++;
     this.estudiantes.push(estudiante);
+    console.log(this.estudiantes);
     return estudiante;
   }
 

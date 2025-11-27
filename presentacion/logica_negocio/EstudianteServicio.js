@@ -1,4 +1,4 @@
-import { Lista_Estudiantes } from '../datos/repositorio/EstudianteRepositorio.js';
+import instanciaRepositorio from '../datos/repositorio/EstudianteRepositorio.js';
 import { CommandInvoker } from './CommandInvoker.js';
 import { RegistrarEstudianteCommand } from './Commands/RegistrarEstudianteCommand.js';
 import { ModificarEstudianteCommand } from './Commands/ModificarEstudianteCommand.js';
@@ -6,7 +6,7 @@ import { EliminarEstudianteCommand } from './Commands/EliminarEstudianteCommand.
 
 export class EstudianteService {
   constructor() {
-    this.repo = new Lista_Estudiantes();
+    this.repo = instanciaRepositorio;
     this.invoker = new CommandInvoker();
   }
 
